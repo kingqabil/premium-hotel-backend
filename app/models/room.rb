@@ -4,4 +4,6 @@ class Room < ApplicationRecord
   validates :rate, numericality: { greater_than_or_equal_to: 0 }
 
   belongs_to :user
+  belongs_to :reservation
+  has_one_attached :picture
 end
