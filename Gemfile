@@ -34,9 +34,9 @@ gem 'rspec'
 # gem "kredis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-gem "bcrypt"
-gem 'jwt'
+gem 'bcrypt'
 gem 'devise-jwt'
+gem 'jwt'
 gem 'rack-cors'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
