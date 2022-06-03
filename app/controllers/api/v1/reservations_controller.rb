@@ -5,8 +5,6 @@ class Api::V1::ReservationsController < ApplicationController
     @reservations = current_user.reservations
   end
 
-
-
   def create
     @reservation = current_user.reservations.new(reservation_params)
 
