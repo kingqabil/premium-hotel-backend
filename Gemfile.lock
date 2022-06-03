@@ -296,6 +296,9 @@ DEPENDENCIES
   rspec
   rspec-rails
   rswag
+  rswag-api
+  rswag-specs
+  rswag-ui
   stimulus-rails
   turbo-rails
   tzinfo-data
