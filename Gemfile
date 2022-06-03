@@ -35,6 +35,7 @@ gem 'rspec'
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 gem 'bcrypt'
+gem 'cancancan'
 gem 'devise-jwt'
 gem 'jwt'
 gem 'rack-cors'
@@ -50,8 +51,6 @@ gem 'ffi'
 gem 'devise'
 gem 'rabl'
 
-gem 'cancancan'
-
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -63,7 +62,10 @@ gem 'cancancan'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'capybara'
+  gem 'database_cleaner'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails'
 end
 
 group :development do
