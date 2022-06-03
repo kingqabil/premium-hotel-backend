@@ -35,6 +35,7 @@ gem 'rspec'
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 gem 'bcrypt'
+gem 'cancancan'
 gem 'devise-jwt'
 gem 'jwt'
 gem 'rack-cors'
