@@ -1,5 +1,4 @@
-class RoomsController < ApplicationController
-  # load_and_authorize_resource
+class Api::V1::RoomsController < ApplicationController
   before_action :set_room, only: :destroy
 
   def index
