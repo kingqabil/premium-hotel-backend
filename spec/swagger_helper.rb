@@ -25,7 +25,7 @@ RSpec.configure do |config|
           url: 'https://{defaultHost}',
           variables: {
             defaultHost: {
-              default: 'https://premium-hotel.herokuapp.com/'
+              default: 'https://illustrious-manatee-a1d62c.netlify.app'
             }
           }
         }
