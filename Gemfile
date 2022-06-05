@@ -43,6 +43,9 @@ gem 'rswag'
 gem 'rswag-api'
 gem 'rswag-ui'
 gem 'zeitwerk', '~> 2.5', '>= 2.5.4'
+gem 'net-smtp', require: false
+gem 'net-pop', require: false
+gem 'net-imap', require: false
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data'
