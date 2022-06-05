@@ -3,6 +3,12 @@ openapi: 3.0.1
 info:
   title: API V1
   version: v1
+components:
+  securitySchemes:
+    bearer_auth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
 paths:
   "/api/v1/reservations":
     get:
@@ -238,4 +244,4 @@ servers:
 - url: https://{defaultHost}
   variables:
     defaultHost:
-      default: https://illustrious-manatee-a1d62c.netlify.app
+      default: 127.0.0.1:3001
