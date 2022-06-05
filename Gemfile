@@ -42,6 +42,7 @@ gem 'rack-cors'
 gem 'rswag'
 gem 'rswag-api'
 gem 'rswag-ui'
+gem 'zeitwerk', '~> 2.5', '>= 2.5.4'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data'

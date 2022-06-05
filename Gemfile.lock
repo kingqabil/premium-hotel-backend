@@ -302,6 +302,7 @@ DEPENDENCIES
   stimulus-rails
   turbo-rails
   tzinfo-data
+  zeitwerk (~> 2.5, >= 2.5.4)
 
 RUBY VERSION
    ruby 3.1.1p18
