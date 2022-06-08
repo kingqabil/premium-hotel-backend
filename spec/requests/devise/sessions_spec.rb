@@ -14,12 +14,12 @@ RSpec.describe 'devise/sessions', type: :request do
         required: %w[email password]
       }
       response(200, 'successful') do
-        let(:login) { { email: 'admin@admin.com', password: '2435647' } }
+        let(:login) { { email: 'sadiq@gmail.com', password: '111111' } }
         run_test!
       end
 
       response '422', 'invalid request' do
-        let(:login) { { email: 'admin@admin.com', password: '2435' } }
+        let(:login) { { email: 'sadiq@gmail.com', password: '2435' } }
         run_test!
       end
     end
@@ -31,7 +31,7 @@ RSpec.describe 'devise/sessions', type: :request do
       security [bearer_auth: []]
       response(200, 'successful') do
         response '201', 'Logged Out' do
-          let(:Authorization) { "Bearer #{::Base64.strict_encode64('admin@admin.com:2435647')}" }
+          let(:Authorization) { "Bearer #{::Base64.strict_encode64('sadiq@gmail.com:111111')}" }
           run_test!
         end
 

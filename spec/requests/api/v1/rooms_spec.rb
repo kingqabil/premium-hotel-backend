@@ -18,7 +18,7 @@ RSpec.describe 'api/v1/rooms', type: :request do
       end
 
       response '201', 'Authorized' do
-        let(:Authorization) { "Bearer #{::Base64.strict_encode64('admin@admin.com:2435647')}" }
+        let(:Authorization) { "Bearer #{::Base64.strict_encode64('sadiq@gmail.com:111111')}" }
         run_test!
       end
 
@@ -58,7 +58,7 @@ RSpec.describe 'api/v1/rooms', type: :request do
       end
 
       response '201', 'successfully authenticated' do
-        let(:Authorization) { "Bearer #{::Base64.strict_encode64('admin@admin.com:2435647')}" }
+        let(:Authorization) { "Bearer #{::Base64.strict_encode64('sadiq@gmail.com:111111')}" }
         run_test!
       end
 
@@ -100,7 +100,7 @@ RSpec.describe 'api/v1/rooms', type: :request do
         run_test!
       end
       response '201', 'successfully authenticated' do
-        let(:Authorization) { "Bearer #{::Base64.strict_encode64('admin@admin.com:2435647')}" }
+        let(:Authorization) { "Bearer #{::Base64.strict_encode64('sadiq@gmail.com:111111')}" }
         run_test!
       end
 
@@ -127,7 +127,7 @@ RSpec.describe 'api/v1/rooms', type: :request do
       end
 
       response '201', 'delete room' do
-        let(:Authorization) { "Bearer #{::Base64.strict_encode64('admin@admin.com:2435647')}" }
+        let(:Authorization) { "Bearer #{::Base64.strict_encode64('sadiq@gmail.com:111111')}" }
         run_test!
       end
 
