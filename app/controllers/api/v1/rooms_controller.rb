@@ -1,5 +1,5 @@
 class Api::V1::RoomsController < ApplicationController
-  before_action :set_room, only: :destroy
+  before_action :set_room, only: %i[destroy show]
 
   def index
     @rooms = current_user.rooms.all
@@ -8,7 +8,7 @@ class Api::V1::RoomsController < ApplicationController
   def create
     @room = current_user.rooms.new(room_params)
 
-    if @room.save
+    if @room.save!
       render :create, status: :created
     else
       render json: @room.errors, status: :unprocessable_entity
@@ -16,7 +16,11 @@ class Api::V1::RoomsController < ApplicationController
   end
 
   def destroy
-    @room.destroy
+    if @room.destroy
+      render json: { message: 'Room has been successfully deleted' }
+    else
+      render json: @room.errors, status: :unprocessable_entity
+    end
   end
 
   private
