@@ -41,14 +41,14 @@ gem 'bcrypt'
 gem 'cancancan'
 gem 'devise-jwt'
 gem 'jwt'
+gem 'net-imap', require: false
+gem 'net-pop', require: false
+gem 'net-smtp', require: false
 gem 'rack-cors'
 gem 'rswag'
 gem 'rswag-api'
 gem 'rswag-ui'
 gem 'zeitwerk', '~> 2.5', '>= 2.5.4'
-gem 'net-smtp', require: false
-gem 'net-pop', require: false
-gem 'net-imap', require: false
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data'
@@ -61,7 +61,7 @@ gem 'ffi'
 gem 'devise'
 gem 'rabl'
 
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv-rails', groups: %i[development test]
 
 # Use Sass to process CSS
 # gem "sassc-rails"

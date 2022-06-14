@@ -1,12 +1,13 @@
 class Api::V1::RoomsController < ApplicationController
+  before_action :authorize_request
   before_action :set_room, only: %i[destroy show]
 
   def index
-    @rooms = current_user.rooms.all
+    @rooms = @current_user.rooms.all
   end
 
   def create
-    @room = current_user.rooms.new(room_params)
+    @room = @current_user.rooms.new(room_params)
 
     if @room.save!
       render :create, status: :created
@@ -30,6 +31,6 @@ class Api::V1::RoomsController < ApplicationController
   end
 
   def room_params
-    params.require(:room).permit(:name, :city, :rate, :room_type, :amenities, :picture, :user_id)
+    params.permit(:name, :city, :rate, :room_type, :amenities, :picture, :user_id)
   end
 end

@@ -1,12 +1,13 @@
 class Api::V1::ReservationsController < ApplicationController
+  before_action :authorize_request
   before_action :set_reservation, only: :destroy
 
   def index
-    @reservations = current_user.reservations
+    @reservations = @current_user.reservations
   end
 
   def create
-    @reservation = current_user.reservations.new(reservation_params)
+    @reservation = @current_user.reservations.new(reservation_params)
 
     if @reservation.save
       render :create, status: :created
