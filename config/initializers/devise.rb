@@ -1,23 +1,16 @@
-# frozen_string_literal: true
-
-# Assuming you have not yet modified this file, each configuration option below
-# is set to its default value. Note that some are commented out while others
-# are not: uncommented lines are intended to protect your configuration from
-# breaking changes in upgrades (i.e., in the event that future versions of
-# Devise change the default values for those options).
-#
-# Use this hook to configure devise mailer, warden hooks and so forth.
-# Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   config.jwt do |jwt|
     jwt.secret = ENV['DEVISE_JWT_SECRET_KEY']
   end
   # The secret key used by Devise. Devise uses this key to generate
+  # config.secret_key = '409f79a1b4c09e544dab32a0be3622ac91df99b70577c6a2bd0919530379de520d75cf0ca18450a2e91cbc9c5bc4c764558f4d5b21849a94efebe96f5ea86f8c'
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '409f79a1b4c09e544dab32a0be3622ac91df99b70577c6a2bd0919530379de520d75cf0ca18450a2e91cbc9c5bc4c764558f4d5b21849a94efebe96f5ea86f8c'
+  # Since it is api
+  config.navigational_formats = []
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
