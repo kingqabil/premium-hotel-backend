@@ -97,69 +97,34 @@ RSpec.describe 'api/v1/reservations', type: :request do
     end
   end
 
-  # path '/api/v1/reservations/{id}' do
-  #   # You'll want to customize the parameter types...
-  #   parameter name: 'id', in: :path, type: :string, description: 'id'
+  path '/api/v1/reservations/{id}' do
+    before :each do
+        @reservation = create(:reservation, room: @room, user: @user)
+    end
+    # You'll want to customize the parameter types...
+    parameter name: 'id', in: :path, type: :string, description: 'id'
 
-  #   get('show reservation') do
-  #     tags 'Reservations'
-  #     security [bearer_auth: []]
-  #     response(200, 'successful') do
-  #       let(:Authorization) {@token}
-  #       let(:id) { @room.id }
+    delete('delete reservation') do
+      tags 'Reservations'
+      security [bearer_auth: []]
+      response(200, 'successful') do
+        let(:Authorization) { @token}
+        let(:id) { @reservation.id }
+        run_test!
+      end
 
-  #       after do |example|
-  #         example.metadata[:response][:content] = {
-  #           'application/json' => {
-  #             example: JSON.parse(response.body, symbolize_names: true)
-  #           }
-  #         }
-  #       end
-  #       run_test!
-  #     end
-  #     response '201', 'successfully authenticated' do
-  #       let(:Authorization) { @token }
-  #       let(:id) { @room.id }
+      response '200', 'delete reservation' do
+        let(:Authorization) { @token }
+        let(:id) { @reservation.id }
+        run_test!
+      end
 
-  #       run_test!
-  #     end
-
-  #     response '401', 'authentication failed' do
-  #       let(:Authorization) { "Bearer #{::Base64.strict_encode64('bogus:bogus')}" }
-  #       let(:id) { @room.id }
-
-  #       run_test!
-  #     end
-  #   end
-
-  #   delete('delete reservation') do
-  #     tags 'Reservations'
-  #     security [bearer_auth: []]
-  #     response(200, 'successful') do
-  #       let(:id) { @room.id }
-
-  #       after do |example|
-  #         example.metadata[:response][:content] = {
-  #           'application/json' => {
-  #             example: JSON.parse(response.body, symbolize_names: true)
-  #           }
-  #         }
-  #       end
-  #       run_test!
-  #     end
-
-  #     response '201', 'delete reservation' do
-  #       let(:Authorization) { @token }
-  #       let(:id) { @room.id }
-  #       run_test!
-  #     end
-
-  #     response '401', 'authentication failed' do
-  #       let(:Authorization) { "Bearer #{::Base64.strict_encode64('bogus:bogus')}" }
-  #       let(:id) { @room.id }
-  #       run_test!
-  #     end
-  #   end
-  # end
+      response '401', 'authentication failed' do
+        let(:Authorization) { "Bearer #{::Base64.strict_encode64('bogus:bogus')}" }
+        let(:id) { @reservation.id }
+        run_test!
+      end
+    end
+  end
   # rubocop: enable Metrics
 end
