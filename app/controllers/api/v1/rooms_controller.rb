@@ -16,8 +16,7 @@ class Api::V1::RoomsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def destroy
     if @room.destroy
