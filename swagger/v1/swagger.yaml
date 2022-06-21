@@ -19,9 +19,7 @@ paths:
       - bearer_auth: []
       responses:
         '200':
-          description: successful
-        '201':
-          description: Authorized
+          description: ok
         '401':
           description: authentication failed
     post:
@@ -38,8 +36,6 @@ paths:
           description: invalid request
         '401':
           description: authentication failed
-        '200':
-          description: successful
       requestBody:
         content:
           application/json:
@@ -64,19 +60,6 @@ paths:
       required: true
       schema:
         type: string
-    get:
-      summary: show reservation
-      tags:
-      - Reservations
-      security:
-      - bearer_auth: []
-      responses:
-        '200':
-          description: successful
-        '201':
-          description: successfully authenticated
-        '401':
-          description: authentication failed
     delete:
       summary: delete reservation
       tags:
@@ -85,8 +68,6 @@ paths:
       - bearer_auth: []
       responses:
         '200':
-          description: successful
-        '201':
           description: delete reservation
         '401':
           description: authentication failed
@@ -99,9 +80,7 @@ paths:
       - bearer_auth: []
       responses:
         '200':
-          description: successful
-        '201':
-          description: Authorized
+          description: Return all the available rooms
         '401':
           description: authentication failed
     post:
@@ -113,9 +92,7 @@ paths:
       parameters: []
       responses:
         '201':
-          description: successful
-        '422':
-          description: invalid request
+          description: successfully authenticated
         '401':
           description: authentication failed
       requestBody:
@@ -158,12 +135,8 @@ paths:
       security:
       - bearer_auth: []
       responses:
-        '200':
-          description: successful
-        '201':
-          description: successfully authenticated
-        '401':
-          description: authentication failed
+        '204':
+          description: Not Found
     delete:
       summary: delete room
       tags:
@@ -173,75 +146,8 @@ paths:
       responses:
         '200':
           description: successful
-        '201':
-          description: delete room
-        '401':
-          description: authentication failed
-  "/users/signup":
-    post:
-      summary: create registration
-      tags:
-      - User Registration
-      parameters: []
-      responses:
-        '200':
-          description: successful
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                email:
-                  type: string
-                password:
-                  type: string
-              required:
-              - name
-              - email
-              - password
-  "/users/login":
-    post:
-      summary: create session
-      tags:
-      - Sessions
-      parameters: []
-      responses:
-        '200':
-          description: successful
-        '422':
-          description: invalid request
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                email:
-                  type: string
-                password:
-                  type: string
-              required:
-              - email
-              - password
-  "/users/logout":
-    delete:
-      summary: delete session
-      tags:
-      - Sessions
-      security:
-      - bearer_auth: []
-      responses:
-        '201':
-          description: Logged Out
-        '401':
-          description: authentication failed
-        '200':
-          description: successful
 servers:
 - url: https://{defaultHost}
   variables:
     defaultHost:
-      default: premium-hotel.herokuapp.com/
+      default: https://premium-hotel.herokuapp.com/
