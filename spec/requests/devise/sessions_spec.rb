@@ -7,7 +7,7 @@ RSpec.describe 'devise/sessions', type: :request do
         post '/api/v1/users/signup', params: {
         user: {
           name: @user.name,
-          email: @user.email,
+          email: 'ibertrand@example.com',
           password: @user.password,
           password_confirmation: @user.password
         }
@@ -15,7 +15,7 @@ RSpec.describe 'devise/sessions', type: :request do
 
       post '/api/v1/users/login', params: {
         user: {
-          email: @user.email,
+          email: 'ibertrand@example.com',
           password: @user.password
         }
       }, as: :json

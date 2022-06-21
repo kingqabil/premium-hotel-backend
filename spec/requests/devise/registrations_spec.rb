@@ -6,7 +6,7 @@ RSpec.describe 'devise/registrations', type: :request do
       post '/api/v1/users/signup', params: {
         user: {
           name: 'ben',
-          email: 'ben@example.com',
+          email: 'den@example.com',
           password: 'password',
           password_confirmation: 'password'
         }
