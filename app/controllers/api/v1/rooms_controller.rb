@@ -16,6 +16,9 @@ class Api::V1::RoomsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def destroy
     if @room.destroy
       render json: { message: 'Room has been successfully deleted' }
