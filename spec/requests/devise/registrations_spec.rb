@@ -1,29 +1,19 @@
 require 'swagger_helper'
 
 RSpec.describe 'devise/registrations', type: :request do
-  path '/users/signup' do
-    post('create registration') do
-      tags 'User Registration'
-      consumes 'application/json'
-      parameter name: :signup, in: :body, schema: {
-        type: :object,
-        properties: {
-          name: { type: :string },
-          email: { type: :string },
-          password: { type: :string }
-        },
-        required: %w[name email password]
+  before :each do
+    @user = create(:user)
+    post '/api/v1/users/signup', params: {
+      user: {
+        name: 'ben',
+        email: 'den@example.com',
+        password: 'password',
+        password_confirmation: 'password'
       }
-      response(200, 'successful') do
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
-        run_test!
-      end
-    end
+    }, as: :json
+  end
+
+  it 'returns a created status' do
+    expect(response).to have_http_status(:created)
   end
 end

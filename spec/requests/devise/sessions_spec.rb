@@ -1,45 +1,29 @@
 require 'swagger_helper'
 
 RSpec.describe 'devise/sessions', type: :request do
-  path '/users/login' do
-    post('create session') do
-      tags 'Sessions'
-      consumes 'application/json'
-      parameter name: :login, in: :body, schema: {
-        type: :object,
-        properties: {
-          email: { type: :string },
-          password: { type: :string }
-        },
-        required: %w[email password]
+  before :each do
+    @user = create(:user)
+    post '/api/v1/users/signup', params: {
+      user: {
+        name: @user.name,
+        email: 'ibertrand@example.com',
+        password: @user.password,
+        password_confirmation: @user.password
       }
-      response(200, 'successful') do
-        let(:login) { { email: 'sadiq@gmail.com', password: '111111' } }
-        run_test!
-      end
+    }, as: :json
 
-      response '422', 'invalid request' do
-        let(:login) { { email: 'sadiq@gmail.com', password: '2435' } }
-        run_test!
-      end
-    end
+    post '/api/v1/users/login', params: {
+      user: {
+        email: 'ibertrand@example.com',
+        password: @user.password
+      }
+    }, as: :json
   end
 
-  path '/users/logout' do
-    delete('delete session') do
-      tags 'Sessions'
-      security [bearer_auth: []]
-      response(200, 'successful') do
-        response '201', 'Logged Out' do
-          let(:Authorization) { "Bearer #{::Base64.strict_encode64('sadiq@gmail.com:111111')}" }
-          run_test!
-        end
-
-        response '401', 'authentication failed' do
-          let(:Authorization) { "Bearer #{::Base64.strict_encode64('bogus:bogus')}" }
-          run_test!
-        end
-      end
-    end
+  it 'returns a created status' do
+    expect(response).to have_http_status(:ok)
+  end
+  it 'returns a token' do
+    expect(json['token'])
   end
 end

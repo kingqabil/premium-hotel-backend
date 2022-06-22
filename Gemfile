@@ -16,8 +16,8 @@ gem 'puma', '~> 5.0'
 # gem 'importmap-rails'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem 'turbo-rails'
 gem 'turbolinks'
+gem 'turbo-rails'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker'
 
@@ -37,7 +37,7 @@ gem 'rspec'
 # gem "kredis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-#gem 'bcrypt'
+# gem 'bcrypt'
 gem 'cancancan'
 gem 'devise-jwt'
 gem 'jwt'
@@ -64,7 +64,7 @@ gem 'rabl'
 gem 'dotenv-rails', groups: %i[development test]
 
 # Use Sass to process CSS
-gem "sassc-rails"
+gem 'sassc-rails'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -77,6 +77,8 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem 'rspec-rails'
   gem 'rswag-specs'
 end
