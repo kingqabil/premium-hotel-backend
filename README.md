@@ -63,7 +63,7 @@ $ rails server
 Open [http://localhost:3000/](http://localhost:3000/) in your browser
 
 ## API Documentation using Swagger-UI
-Open [https://premium-hotel.herokuapp.com/api-docs/index.html](https://premium-hotel.herokuapp.com/api-docs/index.html) in your browser
+Open [https://premium-hotel.herokuapp.com/index.html](https://premium-hotel.herokuapp.com/index.html) in your browser
 
 ## Author
 
