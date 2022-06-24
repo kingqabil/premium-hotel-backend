@@ -60,7 +60,7 @@ $ rspec spec/folder_name/name_of_test_file.rb
 $ rails server
 ```
 
-Open [http://localhost:3000/](http://localhost:3000/) in your browser
+Open [http://localhost:3001/](http://localhost:3001/) in your browser
 
 ## API Documentation using Swagger-UI
 Open [https://premium-hotel.herokuapp.com/index.html](https://premium-hotel.herokuapp.com/index.html) in your browser
